@@ -3,10 +3,10 @@
         <article class="media content-section">
           <div class="media-body">
             <div class="article-metadata">
-              <a class="mr-2" href="#">{</a>
+              <a class="mr-2" >Нажмите, чтобы перейти на страницу ресторана</a>
               <small class="text-muted"></small>
             </div>
-            <h2><a class="article-title" href="#">{{ title }}</a></h2>
+            <h2><a class="article-title" href="{% url 'restaurant_page' id %}">{{ title }}</a></h2>
             <p class="article-content">{{ id }}</p>
           </div>
         </article>

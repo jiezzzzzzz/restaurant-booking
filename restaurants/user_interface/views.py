@@ -26,5 +26,14 @@ def home(request):
     return render(request, 'user_interface/home.html', context=context)
 
 
+def home_2(request, id_place):
+    object = get_object_or_404(Place, pk=id_place)
+    context = {
+        'title': object.name_place,
+        'id': object.id_place,
+    }
+    return render(request, 'user_interface/restaurant_page.html', context=context)
+
+
 def start_page(request):
     return render(request, 'user_interface/about.html')

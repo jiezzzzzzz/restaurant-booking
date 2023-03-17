@@ -1,10 +1,10 @@
 from django.urls import path
-from .views import start_page, home
+from .views import home, home_2
 from .views import SearchResultsView
 
 
 urlpatterns = [
-    path('', start_page),
-    path('home/', home),
-    path('search_result/', SearchResultsView.as_view(), name='search_result')
+    path('', home, name='home'),
+    path('search_result/', SearchResultsView.as_view(), name='search_result'),
+    path('<int:id_place>/', home_2, name='restaurant_page')
 ]
