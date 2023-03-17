@@ -52,6 +52,10 @@
             <p class='text-muted'>новости и события
               <ul class="list-group">
                 <li class="list-group-item list-group-item-light">Новые записи</li>
+                <li class="list-group-item list-group-item-light"><form action="{% url 'search_result' %}" method="get"    >
+                <input name="q" type="text" placeholder="Search...">
+                </form>
+                </li>
               </ul>
             </p>
           </div>
