@@ -7,12 +7,12 @@ from django.shortcuts import get_object_or_404
 
 class SearchResultsView(ListView):
     model = Place
-    template_name = 'search_result.html'
+    template_name = 'user_interface/search_result.html'
 
-    def get_queryset(self): # новый
+    def get_queryset(self):
         query = self.request.GET.get('q')
         object_list = Place.objects.filter(
-            Q(name__icontains=query) | Q(state__icontains=query)
+            Q(name_place__icontains=query)
         )
         return object_list
 

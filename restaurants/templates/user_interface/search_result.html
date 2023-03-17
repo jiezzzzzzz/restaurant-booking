@@ -1,4 +1,21 @@
-<h1>Search Results</h1>
+{% extends "user_interface/base.html" %}
+{% block content %}
+
+<article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+                <ul>
+  {% for restaurant in object_list %}
 
 
-      <h1>что-то</h1>
+              <a class="mr-2" href="#"></a>
+              <small class="text-muted"></small>
+            </div>
+            <h2><a class="article-title" href="#">{{ restaurant.name_place }}</a></h2>
+            <p class="article-content"></p>
+          </div>
+        </article>
+
+  {% endfor %}
+
+{% endblock content %}
