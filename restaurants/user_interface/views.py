@@ -21,5 +21,6 @@ def home(request):
         'posts': posts
     }
     return render(request, 'user_interface/home.html', context)
+
 def start_page(request):
     return render(request, 'user_interface/about.html')
