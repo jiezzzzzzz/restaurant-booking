@@ -5,17 +5,18 @@
           <div class="media-body">
             <div class="article-metadata">
                 <ul>
-  {% for restaurant in object_list %}
 
 
-              <a class="mr-2" href="#"></a>
+              <a class="mr-2" >Нажмите, чтобы перейти на страницу ресторана</a>
               <small class="text-muted"></small>
-            </div>
-            <h2><a class="article-title" href="#">{{ restaurant.name_place }}</a></h2>
-            <p class="article-content"></p>
+              </div>
+                {% for o in object_list%}
+              <h2><a class="article-title" href="#">{{ o.name_place }}</a></h2>
+                {% endfor %}
+              <p class="article-content"></p>
           </div>
         </article>
 
-  {% endfor %}
+
 
 {% endblock content %}

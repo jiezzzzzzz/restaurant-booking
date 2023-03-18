@@ -9,6 +9,7 @@ class SearchResultsView(ListView):
     model = Place
     template_name = 'user_interface/search_result.html'
 
+
     def get_queryset(self):
         query = self.request.GET.get('q')
         object_list = Place.objects.filter(
@@ -17,22 +18,29 @@ class SearchResultsView(ListView):
         return object_list
 
 
+
+
 def home(request):
-    object = get_object_or_404(Place)
-    context = {
-        'title': object.name_place,
-        'id': object.id_place,
-    }
-    return render(request, 'user_interface/home.html', context=context)
+    object = Place.objects.all()
+    context = {}
+    for i in object:
+        context = {
+            'title': i.name_place,
+            'id': i.id_place,
+        }
+    return render(request, 'user_interface/home.html', {'objects': object})
 
 
 def home_2(request, id_place):
-    object = get_object_or_404(Place, pk=id_place)
-    context = {
-        'title': object.name_place,
-        'id': object.id_place,
-    }
+    object = Place.objects.filter(pk=id_place)
+    context = {}
+    for i in object:
+        context = {
+            'title': i.name_place,
+            'id': i.id_place,
+        }
     return render(request, 'user_interface/restaurant_page.html', context=context)
+
 
 
 def start_page(request):

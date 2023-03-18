@@ -6,8 +6,10 @@
               <a class="mr-2" >Нажмите, чтобы перейти на страницу ресторана</a>
               <small class="text-muted"></small>
             </div>
-            <h2><a class="article-title" href="{% url 'restaurant_page' id %}">{{ title }}</a></h2>
-            <p class="article-content">{{ id }}</p>
+              {% for i in objects %}
+            <h2><a class="article-title" href="{% url 'restaurant_page' i.id_place %}">{{ i.name_place }}</a></h2>
+            <p class="article-content">{{ i.id_place }}</p>
+              {% endfor %}
           </div>
         </article>
 
