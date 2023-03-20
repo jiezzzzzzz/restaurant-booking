@@ -1,8 +1,18 @@
 from django.shortcuts import render
 from django.db.models import Q
 from django.views.generic import ListView
-from .models import Place
-from django.shortcuts import get_object_or_404
+from .models import Place, Favorites
+
+
+def vote(request):
+    if request.method == 'GET':
+        n = Favorites.id_favorites
+        a = Favorites.objects.get(id_favorites=n)
+        context = {
+            'title': a.id_place,
+            'id': a.id_place
+        }
+        return render(request, 'favorites.html', context)
 
 
 class SearchResultsView(ListView):
@@ -18,16 +28,9 @@ class SearchResultsView(ListView):
         return object_list
 
 
-
-
 def home(request):
     object = Place.objects.all()
-    context = {}
-    for i in object:
-        context = {
-            'title': i.name_place,
-            'id': i.id_place,
-        }
+
     return render(request, 'user_interface/home.html', {'objects': object})
 
 
@@ -40,7 +43,6 @@ def home_2(request, id_place):
             'id': i.id_place,
         }
     return render(request, 'user_interface/restaurant_page.html', context=context)
-
 
 
 def start_page(request):

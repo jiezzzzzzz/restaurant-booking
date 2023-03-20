@@ -111,8 +111,8 @@ class Place_typeKitchen(models.Model):
 
 class Favorites(models.Model):
     id_favorites=models.IntegerField("Код", primary_key=True)
-    id_place = models.ForeignKey("Place", on_delete=models.CASCADE)
-    id_user = models.ForeignKey("User", on_delete=models.CASCADE)
+    id_place = models.ForeignKey(Place, on_delete=models.CASCADE)
+    id_user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.id_favorites
