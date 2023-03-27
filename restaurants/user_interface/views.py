@@ -1,22 +1,11 @@
 from django.db.models import Q
 from django.shortcuts import render, redirect
-from .models import Place, Favorites
+from .models import Place
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import (
     ListView,
     CreateView
 )
-
-
-def vote(request):
-    if request.method == 'GET':
-        n = Favorites.id_favorites
-        a = Favorites.objects.get(id_favorites=n)
-        context = {
-            'title': a.id_place,
-            'id': a.id_place
-        }
-        return render(request, 'favorites.html', context)
 
 
 class SearchResultsView(ListView):

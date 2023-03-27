@@ -9,9 +9,11 @@
               {% for i in objects %}
             <h2><a class="article-title" href="{% url 'restaurant_page' i.id_place %}">{{ i.name_place }}</a></h2>
             <p class="article-content">{{ i.id_place }}</p>
-              <form action = "{% url 'favourites' %}" method = "get">
-             <input type="submit" name="submit" value="добавить в избранное"><br>
-            </form>
+              <form action = "{% url 'favourites:favorites' %}" method = "post">
+                  {% csrf_token %}
+                  {{ form.as_p }}
+             <button type="submit">добавить в избранное</button>
+                </form>
              </div>
             </article>
               {% endfor %}

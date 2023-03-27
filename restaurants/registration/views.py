@@ -1,24 +1,14 @@
 from django.shortcuts import render
-from django.contrib import messages
-from django.contrib.auth.decorators import login_required
-from .forms import UserRegisterForm
-from django.http import HttpResponseRedirect
-from django.urls import reverse
+from django.shortcuts import render, redirect
+from .forms import RegistrationForm
 
 
 def register(request):
     if request.method == 'POST':
-        form = UserRegisterForm(request.POST)
+        form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-            username = form.cleaned_data.get('username')
-            messages.success(request, f'Ваш аккаунт создан: можно войти на сайт.')
-            return HttpResponseRedirect(reverse('login') )
+            return redirect('home')
     else:
-        form = UserRegisterForm()
-    return render(request, 'registration/register.html', {'form': form})
-
-
-@login_required
-def profile(request):
-    return render(request, 'user_interface/home.html')
+        form = RegistrationForm()
+    return render(request, 'user_interface/registration.html', {'form': form})
