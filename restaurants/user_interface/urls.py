@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import home, home_2, vote
-from .views import SearchResultsView
+from .views import SearchResultsView, CreateViews
 
 
 urlpatterns = [

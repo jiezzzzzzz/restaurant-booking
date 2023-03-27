@@ -1,18 +1,8 @@
 from django.db import models
+from django.urls import reverse
+from django.contrib.auth.models import AbstractUser
 
 
-class User(models.Model):
-    id_user = models.IntegerField("Код пользователя", primary_key=True)
-    login=models.CharField("Логин", max_length=32)
-    password=models.CharField("Пароль", max_length=64)
-    email=models.SlugField(max_length=320)
-
-    def __str__(self):
-        return self.login
-
-    class Meta:
-        verbose_name = "Пользователь"
-        verbose_name_plural="Пользователь"
 
 
 class TypeKitchen(models.Model):
@@ -78,6 +68,9 @@ class Place(models.Model):
         verbose_name = "Заведения"
         verbose_name_plural = "Заведение"
 
+    #def get_absolute_url(self):
+     #   return reverse('added_new_restaurant', kwargs={'pk': self.pk})
+
 
 class Manager(models.Model):
     id_manager=models.IntegerField("Код менеджера", primary_key=True)
@@ -112,7 +105,7 @@ class Place_typeKitchen(models.Model):
 class Favorites(models.Model):
     id_favorites=models.IntegerField("Код", primary_key=True)
     id_place = models.ForeignKey(Place, on_delete=models.CASCADE)
-    id_user = models.ForeignKey(User, on_delete=models.CASCADE)
+   # id_user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.id_favorites
@@ -125,7 +118,7 @@ class Favorites(models.Model):
 class BookingRequest(models.Model):
     id_request=models.IntegerField("Код", primary_key=True)
     id_place = models.ForeignKey("Place", on_delete=models.CASCADE)
-    id_user = models.ForeignKey("User", on_delete=models.CASCADE)
+    #id_user = models.ForeignKey("User", on_delete=models.CASCADE)
     time_visit=models.DateTimeField()
     number_persons=models.IntegerField("Количество человек")
     note_user=models.CharField("Примечание пользователя", max_length=4096)

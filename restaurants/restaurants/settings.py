@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'user_interface',
     'registration',
-    'crispy_forms'
 ]
 
 MIDDLEWARE = [
@@ -134,3 +133,5 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_URL = 'login'
 
 LOGIN_REDIRECT_URL = 'user_interface/home'
+
+AUTH_USER_MODEL = 'registration.AbstractniyUser'

@@ -1,0 +1,13 @@
+{% extends "user_interface/base.html" %}
+{% block content %}
+  <article class="media content-section">
+    <div class="media-body">
+      <div class="article-metadata">
+        <a class="mr-2" href="#">{{}</a>>
+
+      </div>
+      <h2 class="article-title">{{ id_place }}</h2>
+      <p class="article-content">{{ name_place }}</p>
+    </div>
+  </article>
+{% endblock content %}

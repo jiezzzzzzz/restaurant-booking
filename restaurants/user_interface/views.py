@@ -1,7 +1,11 @@
-from django.shortcuts import render
 from django.db.models import Q
-from django.views.generic import ListView
+from django.shortcuts import render, redirect
 from .models import Place, Favorites
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import (
+    ListView,
+    CreateView
+)
 
 
 def vote(request):
@@ -45,5 +49,10 @@ def home_2(request, id_place):
     return render(request, 'user_interface/restaurant_page.html', context=context)
 
 
-def start_page(request):
-    return render(request, 'user_interface/about.html')
+class CreateViews(LoginRequiredMixin, CreateView):
+    model = Place
+    fields = ['id_place', 'name_place']
+
+    def form_valid(self, form):
+        return super().form_valid(form)
+
