@@ -72,8 +72,6 @@ class Place(models.Model):
      #   return reverse('added_new_restaurant', kwargs={'pk': self.pk})
 
 
-
-
 class Place_typeKitchen(models.Model):
     id = models.IntegerField("Код", primary_key=True)
     id_place = models.ForeignKey("Place",to_field='id_place', on_delete=models.CASCADE)

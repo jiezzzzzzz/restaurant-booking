@@ -7,6 +7,8 @@ from django.views.generic import (
     CreateView
 )
 
+from .forms import PlaceFilterForm
+
 
 class SearchResultsView(ListView):
     model = Place
@@ -23,8 +25,20 @@ class SearchResultsView(ListView):
 
 def home(request):
     object = Place.objects.all()
+    form = PlaceFilterForm(request.GET or None)
 
-    return render(request, 'user_interface/home.html', {'objects': object})
+    if form.is_valid():
+        places = form.filter_places()
+    else:
+        places = Place.objects.all()
+
+    context = {
+        'form': form,
+        'places': places,
+        'objects': object
+    }
+
+    return render(request, 'user_interface/home.html', context)
 
 
 def home_2(request, id_place):

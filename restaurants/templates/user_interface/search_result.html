@@ -11,7 +11,7 @@
               <small class="text-muted"></small>
               </div>
                 {% for o in object_list%}
-              <h2><a class="article-title" href="#">{{ o.name_place }}</a></h2>
+              <h2><a class="article-title" href="{% url 'restaurant_page' o.id_place %}">{{ o.name_place }}</a></h2>
                 {% endfor %}
               <p class="article-content"></p>
           </div>
