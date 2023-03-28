@@ -1,6 +1,6 @@
 {% extends "user_interface/base.html" %}
 {% block content %}
-
+{% if user.is_authenticated %}
 <article class="media content-section">
           <div class="media-body">
             <div class="article-metadata">
@@ -15,5 +15,5 @@
               <p class="article-content"></p>
           </div>
         </article>
-
+{% endif %}
 {% endblock %}
