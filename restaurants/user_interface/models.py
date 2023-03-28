@@ -72,21 +72,6 @@ class Place(models.Model):
      #   return reverse('added_new_restaurant', kwargs={'pk': self.pk})
 
 
-class Manager(models.Model):
-    id_manager=models.IntegerField("Код менеджера", primary_key=True)
-    login = models.CharField("Логин", max_length=32)
-    password = models.CharField("Пароль", max_length=64)
-    email = models.SlugField(max_length=320)
-    surname =models.CharField("Фамилия", max_length=43 )
-    name = models.CharField("Имя", max_length=16)
-    patronymic = models.CharField("Отчество", max_length=20)
-
-    def __str__(self):
-        return self.login
-
-    class Meta:
-        verbose_name = "Менеджер"
-        verbose_name_plural = "Менеджер"
 
 
 class Place_typeKitchen(models.Model):
@@ -100,5 +85,3 @@ class Place_typeKitchen(models.Model):
     class Meta:
         verbose_name = "Заведение_типКухни"
         verbose_name_plural = "Заведение_типКухни"
-
-

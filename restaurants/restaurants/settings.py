@@ -42,7 +42,9 @@ INSTALLED_APPS = [
     'registration',
     'favourites',
     'crispy_forms',
-    'dooking_request',
+    'booking_request',
+    'edit_restaurant_page',
+    'registration_manager',
 ]
 
 MIDDLEWARE = [

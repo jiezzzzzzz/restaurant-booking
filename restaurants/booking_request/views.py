@@ -14,12 +14,6 @@ def booking_request(request, id_place):
         time = request.POST.get('time')
         guests = request.POST.get('guests')
         special_requests = request.POST.get('special_requests')
-        object = Place.objects.filter(pk=id_place)
-        context = {}
-        for i in object:
-            context = {
-                'id': i.id_place,
-            }
         place = Place.objects.get(id_place=id_place)
         # Создаем объект BookingRequest
         booking_request = BookingRequest(
@@ -33,4 +27,4 @@ def booking_request(request, id_place):
 
         # Сохраняем объект в базу данных
         booking_request.save()
-    return render(request, 'boorking_request/booking.html', context)
+    return render(request, 'boorking_request/booking.html')
