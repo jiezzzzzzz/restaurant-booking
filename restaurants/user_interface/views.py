@@ -47,6 +47,16 @@ def restaurant_page(request, id_place):
         context = {
             'title': i.name_place,
             'id': i.id_place,
+            'number_phone': i.number_phone,
+            'takeaway_food': i.takeaway_food,
+            'delivery': i.delivery,
+            'summer_veranda': i.summer_veranda,
+            'menu_vegan': i.menu_vegan,
+            'visit_pet': i.visit_pet,
+            'bus_lunch': i.bus_lunch,
+            'child_room': i.child_room,
+            'url': i.url,
+            'live_music': i.live_music
         }
     return render(request, 'user_interface/restaurant_page.html', context=context)
 
