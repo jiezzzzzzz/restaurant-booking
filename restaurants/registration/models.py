@@ -25,6 +25,8 @@ class AbstractniyUser(AbstractUser):
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = []
 
+    user_type = 'User'
+
     def __str__(self):
         return self.username
 

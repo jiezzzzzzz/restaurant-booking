@@ -29,6 +29,7 @@ class Manager(AbstractUser):
         help_text=('Specific permissions for this user.'),
         related_name='manager_user_set'
     )
+    user_type = 'Manager'
 
     USERNAME_FIELD = 'login'
     REQUIRED_FIELDS = []
