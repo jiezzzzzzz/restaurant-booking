@@ -4,6 +4,7 @@ from .forms import RegistrationForm
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from .login_forms import LoginForm
+from django.contrib.auth.decorators import login_required
 
 def login_view(request):
     if request.method == 'POST':
@@ -29,3 +30,7 @@ def register(request):
     else:
         form = RegistrationForm()
     return render(request, 'user_interface/registration.html', {'form': form})
+
+@login_required
+def profile(request):
+    return render(request, 'user_interface/profile.html')
