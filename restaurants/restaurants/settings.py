@@ -140,4 +140,4 @@ LOGIN_URL = 'login'
 
 LOGIN_REDIRECT_URL = 'user_interface/home'
 
-AUTH_USER_MODEL = 'registration.AbstractniyUser'
+AUTH_USER_MODEL = 'registration.CustomUser'
