@@ -3,18 +3,18 @@
 <html>
 <head>
 
-    <!-- Обязательные мета-теги -->
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap, иконки и шрифт -->
+
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
      <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900' rel='stylesheet' type='text/css'>
      <link rel="stylesheet" type="text/css" href="{% static 'user_interface/main.css' %}">
      <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 
     {% if title %}
-        <title>Блог клуба {{ title }}</title>
+        <title>Сайт о ресторанах {{ title }}</title>
     {% else %}
         <title>Сайт о ресторанах</title>
     {% endif %}
@@ -32,7 +32,6 @@
               <a class="nav-item nav-link " href="{% url 'home' %}">Главная</a>
               <a class="nav-item nav-link" href="#">Контакты</a>
             </div>
-            <!-- Правая часть навигационной панели -->
             <div class="navbar-nav">
                 {% if user.is_authenticated %}
             	<a class="nav-item nav-link" href="{% url 'profile' %}">Профиль</a>
@@ -74,7 +73,7 @@
                 {% endfor %}
                 </ul>
                 {% else %}
-                <p>Заведений не найдено.</p>
+                <p>Заведений не найдено</p>
                 {% endif %}
                 </form>
 
