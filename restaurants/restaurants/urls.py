@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from dooking_request.views import booking_request
+from edit_restaurant_page.views import post_edit
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,4 +23,5 @@ urlpatterns = [
     path('register/', include('registration.urls')),
     path('favorites/', include('favourites.urls')),
     path('booking/', include('dooking_request.urls')),
+    path('edit/<int:id_place>/', post_edit, name='post_edit'),
 ]

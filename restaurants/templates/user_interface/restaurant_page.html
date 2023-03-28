@@ -9,6 +9,7 @@
             <h2><a class="article-title">{{ title }}</a></h2>
             <p class="article-content">{{ id }}</p>
             <p class="article-content">{{ number_place }}</p>
+            <button type="submit" href="{% url 'booking_id' id_place=place.id_place %}">забронировать</button>
           </div>
         </article>
 
