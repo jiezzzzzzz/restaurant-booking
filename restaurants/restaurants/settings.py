@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'registration',
     'favourites',
     'crispy_forms',
+    'dooking_request',
 ]
 
 MIDDLEWARE = [

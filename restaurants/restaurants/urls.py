@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from dooking_request.views import booking_request
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('user_interface.urls')),
     path('register/', include('registration.urls')),
     path('favorites/', include('favourites.urls')),
+    path('booking/', include('dooking_request.urls')),
 ]

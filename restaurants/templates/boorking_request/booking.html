@@ -1,0 +1,25 @@
+<form method="POST">
+  {% csrf_token %}
+  <label for="name">Имя:</label>
+  <input type="text" id="name" name="name" required><br>
+
+  <label for="email">Электронная почта:</label>
+  <input type="email" id="email" name="email" required><br>
+
+  <label for="phone">Номер телефона:</label>
+  <input type="tel" id="phone" name="phone" required><br>
+
+  <label for="date">Дата бронирования:</label>
+  <input type="date" id="date" name="date" required><br>
+
+  <label for="time">Время бронирования:</label>
+  <input type="time" id="time" name="time" required><br>
+
+  <label for="guests">Количество гостей:</label>
+  <input type="number" id="guests" name="guests" min="1" max="100" required><br>
+
+  <label for="special_requests">Особые пожелания:</label>
+  <textarea id="special_requests" name="special_requests"></textarea><br>
+
+  <button type="submit">Отправить заявку</button>
+</form>
