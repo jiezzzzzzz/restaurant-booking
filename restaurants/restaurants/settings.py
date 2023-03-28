@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'user_interface',
     'registration',
-    'favourites',
+    'favorites',
     'crispy_forms',
     'booking_request',
     'edit_restaurant_page',

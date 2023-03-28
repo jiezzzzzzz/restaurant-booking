@@ -4,11 +4,11 @@ from django.contrib.auth.models import Permission, Group
 
 
 class Manager(AbstractUser):
-    id_manager=models.IntegerField("Код менеджера", primary_key=True)
+    id_manager = models.IntegerField("Код менеджера", primary_key=True)
     login = models.CharField("Логин", max_length=32, unique=True)
     password = models.CharField("Пароль", max_length=64)
     email = models.EmailField(max_length=320)
-    surname =models.CharField("Фамилия", max_length=43 )
+    surname = models.CharField("Фамилия", max_length=43 )
     name = models.CharField("Имя", max_length=16)
     patronymic = models.CharField("Отчество", max_length=20)
 

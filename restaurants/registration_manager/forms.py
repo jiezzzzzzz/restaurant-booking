@@ -29,4 +29,5 @@ class ManagerRegistrationForm(forms.ModelForm):
         manager.set_password(self.cleaned_data['password'])
         if commit:
             manager.save()
+
         return manager

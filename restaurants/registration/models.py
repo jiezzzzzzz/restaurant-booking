@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.models import Permission, Group
 
 
-class AbstractniyUser(AbstractUser):
+class CustomUser(AbstractUser):
     id_user = models.IntegerField("Код пользователя", primary_key=True, blank=True)
     username=models.CharField("Логин", max_length=32, blank=True, unique=True)
     password=models.CharField("Пароль", max_length=64, blank=True)

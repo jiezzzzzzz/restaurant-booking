@@ -10,4 +10,4 @@ def register_manager(request):
             return redirect('home')
     else:
         form = ManagerRegistrationForm()
-    return render(request, 'user_interface/register_manager.html', {'form': form})
+    return render(request, 'registration/register_manager.html', {'form': form})

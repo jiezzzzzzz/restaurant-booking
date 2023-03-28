@@ -1,19 +1,17 @@
 from django.db.models import Q
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from .models import Place
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import (
     ListView,
     CreateView
 )
-
 from .forms import PlaceFilterForm
 
 
 class SearchResultsView(ListView):
     model = Place
     template_name = 'user_interface/search_result.html'
-
 
     def get_queryset(self):
         query = self.request.GET.get('q')
@@ -32,16 +30,17 @@ def home(request):
     else:
         places = Place.objects.all()
 
+
     context = {
         'form': form,
         'places': places,
-        'objects': object
+        'objects': object,
     }
 
     return render(request, 'user_interface/home.html', context)
 
 
-def home_2(request, id_place):
+def restaurant_page(request, id_place):
     object = Place.objects.filter(pk=id_place)
     context = {}
     for i in object:

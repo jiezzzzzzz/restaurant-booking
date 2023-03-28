@@ -1,6 +1,7 @@
 from django import forms
 from .models import Place, TypePlace
 
+
 class PlaceFilterForm(forms.Form):
     type_place = forms.ModelMultipleChoiceField(
         queryset=TypePlace.objects.all(),
@@ -16,3 +17,4 @@ class PlaceFilterForm(forms.Form):
             places = places.filter(id_type__in=self.cleaned_data['type_place'])
 
         return places
+

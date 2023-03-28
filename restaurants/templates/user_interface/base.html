@@ -61,7 +61,7 @@
                 <li class="list-group-item list-group-item-light"><form action="{% url 'search_result' %}" method="get"    >
                 <input name="q" type="text" placeholder="Search...">
                     <form method="get">
-                <li class="list-group-item list-group-item-light">по типу кухни</li>
+                <li class="list-group-item list-group-item-light">по типу заведения</li>
                         {% csrf_token %}
                         {{ form.as_p }}
                         <button type="submit">Фильтровать</button>
@@ -77,6 +77,7 @@
                 <p>Заведений не найдено.</p>
                 {% endif %}
                 </form>
+
                 </li>
               </ul>
             </p>

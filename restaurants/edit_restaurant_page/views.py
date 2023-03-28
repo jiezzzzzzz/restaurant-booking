@@ -1,6 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect
 from user_interface.models import Place
-from .forms import PostForm
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect, HttpResponseForbidden
 from django.urls import reverse
@@ -16,6 +14,7 @@ def manager_only(view_func):
             return HttpResponseForbidden()
     return wrapper
 
+
 @login_required
 @manager_only
 def post_edit(request, post_id):
@@ -27,4 +26,4 @@ def post_edit(request, post_id):
         return HttpResponseRedirect(reverse('home'))
     else:
         form = PostForm(instance=post)
-        return render(request, 'user_interface/post_edit.html', {'form': form})
+        return render(request, 'edit_restaurant_page/post_edit.html', {'form': form})
