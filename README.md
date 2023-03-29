@@ -76,6 +76,13 @@
 ## Как запустить 
 
 1. <code>git clone https://github.com/jiezzzzzzz/restaurant-booking</code>
+2. Создать секретный ключ Джанго в интерактивном режиме питона: 
+python
+```
+import django
+from django.core.management.utils import get_random_secret_key
+print(get_random_secret_key())
+```
 2. <code>pip install -r requirements.txt</code>
 3. <code>python manage.py migrate</code>
 4. <code>python manage.py createsuperuser</code>
