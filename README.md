@@ -76,9 +76,21 @@
 ## Как запустить 
 
 1. <code>git clone https://github.com/jiezzzzzzz/restaurant-booking</code>
-2. <code>python manage.py migrate</code>
-3. <code>python manage.py createsuperuser</code>
-4. добавить данные в админку, без них верстка сайта немного плывет 
+2. создать секретный ключ Джанго в интерактивном режиме питона: 
+python
+```
+import django
+from django.core.management.utils import get_random_secret_key
+print(get_random_secret_key())
+```
+3. создать <code>.env</code> файл и положить в него секретный ключ:
+```
+SECRET_KEY = 
+```
+4. <code>pip install -r requirements.txt</code>
+5. <code>python manage.py migrate</code>
+6. <code>python manage.py createsuperuser</code>
+7. добавить данные в админку, без них верстка сайта немного плывет 
 
 
 
