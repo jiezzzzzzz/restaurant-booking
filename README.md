@@ -76,9 +76,10 @@
 ## Как запустить 
 
 1. <code>git clone https://github.com/jiezzzzzzz/restaurant-booking</code>
-2. <code>python manage.py migrate</code>
-3. <code>python manage.py createsuperuser</code>
-4. добавить данные в админку, без них верстка сайта немного плывет 
+2. <code>pip install -r requirements.txt</code>
+3. <code>python manage.py migrate</code>
+4. <code>python manage.py createsuperuser</code>
+5. добавить данные в админку, без них верстка сайта немного плывет 
 
 
 
