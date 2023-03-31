@@ -77,8 +77,8 @@
 
 1. <code>git clone https://github.com/jiezzzzzzz/restaurant-booking</code>
 2. создать секретный ключ Джанго в интерактивном режиме питона: 
-python
 ```
+python
 import django
 from django.core.management.utils import get_random_secret_key
 print(get_random_secret_key())
