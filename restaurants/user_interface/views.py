@@ -1,6 +1,6 @@
 from django.db.models import Q
 from django.shortcuts import render
-from .models import Place
+from .models import Place, Street
 from .forms import FilterForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import (
@@ -21,6 +21,7 @@ def place_list(request):
         places = Place.objects.all()
     return render(request, 'place_list.html', {'places': places, 'form': form})
 
+
 class SearchResultsView(ListView):
     model = Place
     template_name = 'user_interface/search_result.html'
@@ -31,6 +32,19 @@ class SearchResultsView(ListView):
             Q(name_place__icontains=query)
         )
         return object_list
+
+
+class SearchResultsViewNameStreet(ListView):
+    model = Street
+    template_name = 'places_list.html'
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        object_list = Street.objects.filter(
+            Q(name_street__icontains=query)
+        )
+        return object_list
+
 
 
 def home(request):
@@ -50,6 +64,7 @@ def home(request):
     }
 
     return render(request, 'user_interface/home.html', context)
+
 
 
 def restaurant_page(request, id_place):
@@ -80,6 +95,7 @@ class CreateViews(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         return super().form_valid(form)
 
+
 def places_list(request):
     places = Place.objects.all()
     if request.GET.get('live_music'):
@@ -98,5 +114,5 @@ def places_list(request):
         places = places.filter(bus_lunch=True)
     if request.GET.get('child_room'):
         places = places.filter(child_room=True)
-    return render(request, 'places_list.html', {'places': places})
+    return render(request, 'user_interface/search_list.html', {'places': places})
 

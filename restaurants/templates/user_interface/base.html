@@ -60,6 +60,10 @@
                 <li class="list-group-item list-group-item-light">Поиск ресторана: по названию</li>
                 <li class="list-group-item list-group-item-light"><form action="{% url 'search_result' %}" method="get"    >
                 <input name="q" type="text" placeholder="Search...">
+                    <li class="list-group-item list-group-item-light">по названию улицы</li>
+                    <form action="{% url 'search_street' %}" method="get">
+  <input name="q" type="text" placeholder="Search...">
+</form>
                     <form method="get">
                 <li class="list-group-item list-group-item-light">по типу заведения</li>
                         {% csrf_token %}
@@ -71,7 +75,7 @@
     {{ form.as_p }}
     <button type="submit">Фильтровать</button>
   </form>
-              <form method="GET">
+              <form method="GET" action="{% url 'places_list' %}">
   <label><input type="checkbox" name="live_music" {% if request.GET.live_music %}checked{% endif %}> Живая музыка</label><br>
   <label><input type="checkbox" name="takeaway_food" {% if request.GET.takeaway_food %}checked{% endif %}> Еда на вынос</label><br>
   <label><input type="checkbox" name="delivery" {% if request.GET.delivery %}checked{% endif %}> Доставка</label><br>

@@ -1,0 +1,18 @@
+{% extends "user_interface/base.html" %}
+{% block content %}
+
+<article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+                <ul>
+
+              <a class="mr-2" >Нажмите, чтобы перейти на страницу ресторана</a>
+              <small class="text-muted"></small>
+              </div>
+                {% for object in places%}
+              <h2><a class="article-title" href="{% url 'restaurant_page' object.id_place %}">{{ object.name_place }}</a></h2>
+                {% endfor %}
+              <p class="article-content"></p>
+          </div>
+        </article>
+{% endblock content %}
