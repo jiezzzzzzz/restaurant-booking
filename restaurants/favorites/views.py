@@ -14,9 +14,7 @@ def add_to_favorites(request):
         user_id = request.POST.get('id_user')
         place = get_object_or_404(Place, id=place_id)
         user = get_object_or_404(CustomUser, id=user_id)
-        favorite, created = Favorites.objects.get_or_create(place=place, user=user)
-        if not created:
-            favorite.delete()
+        Favorites.objects.create(id_place=place_id, id_user=user_id)
         return JsonResponse({'status': 'ok'})
 
 

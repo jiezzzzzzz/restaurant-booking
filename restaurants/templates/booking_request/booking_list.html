@@ -1,0 +1,18 @@
+{% extends 'user_interface/base.html' %}
+{% block content %}
+{% if booking_objects %}
+    <ul>
+        {% for favorite in booking_objects %}
+            <li>{{ favorite.id_request }}:
+            <p>
+    <h1>Бронирование</h1>
+    <p>Ресторан: {{ favorite.id_place.name_place }}</p>
+    <p>Время бронирования: {{ favorite.time_visit }}</p>
+    <p>Количество человек: {{ favorite.number_persons }}</p>
+</p></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>У вас пока нет избранных элементов.</p>
+{% endif %}
+{% endblock %}

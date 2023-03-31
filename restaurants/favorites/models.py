@@ -7,7 +7,6 @@ class Favorites(models.Model):
     id_favorites=models.IntegerField("Код", primary_key=True)
     id_place = models.ForeignKey(Place, on_delete=models.CASCADE)
     id_user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    page_url = models.URLField()
 
     def __str__(self):
         return self.page_url
