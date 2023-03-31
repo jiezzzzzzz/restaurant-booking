@@ -1,6 +1,9 @@
 from django import forms
 from .models import Place, TypePlace
+from .models import TypeKitchen
 
+class FilterForm(forms.Form):
+    type_kitchens = forms.ModelMultipleChoiceField(queryset=TypeKitchen.objects.all(), widget=forms.CheckboxSelectMultiple)
 
 class PlaceFilterForm(forms.Form):
     type_place = forms.ModelMultipleChoiceField(

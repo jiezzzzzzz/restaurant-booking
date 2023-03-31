@@ -55,7 +55,7 @@
         <div class="col-md-4">
           <div class="content-section">
             <h3>Разделы</h3>
-            <p class='text-muted'>новости и события
+            <p class='text-muted'>
               <ul class="list-group">
                 <li class="list-group-item list-group-item-light">Поиск ресторана: по названию</li>
                 <li class="list-group-item list-group-item-light"><form action="{% url 'search_result' %}" method="get"    >
@@ -65,7 +65,25 @@
                         {% csrf_token %}
                         {{ form.as_p }}
                         <button type="submit">Фильтровать</button>
+              <li class="list-group-item list-group-item-light">по типу кухни</li>
+              <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Фильтровать</button>
+  </form>
+              <form method="GET">
+  <label><input type="checkbox" name="live_music" {% if request.GET.live_music %}checked{% endif %}> Живая музыка</label><br>
+  <label><input type="checkbox" name="takeaway_food" {% if request.GET.takeaway_food %}checked{% endif %}> Еда на вынос</label><br>
+  <label><input type="checkbox" name="delivery" {% if request.GET.delivery %}checked{% endif %}> Доставка</label><br>
+  <label><input type="checkbox" name="summer_veranda" {% if request.GET.summer_veranda %}checked{% endif %}> Летняя веранда</label><br>
+  <label><input type="checkbox" name="menu_vegan" {% if request.GET.menu_vegan %}checked{% endif %}> Вегетарианское меню</label><br>
+  <label><input type="checkbox" name="visit_pet" {% if request.GET.visit_pet %}checked{% endif %}> Разрешены животные</label><br>
+  <label><input type="checkbox" name="bus_lunch" {% if request.GET.bus_lunch %}checked{% endif %}> Бизнес-ланч</label><br>
+  <label><input type="checkbox" name="child_room" {% if request.GET.child_room %}checked{% endif %}> Детская комната</label><br>
+  <button type="submit">Применить</button>
+</form>
               </form>
+
 
                 {% if places %}
                 <ul>

@@ -1,6 +1,7 @@
 from django.db.models import Q
 from django.shortcuts import render
 from .models import Place
+from .forms import FilterForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import (
     ListView,
@@ -8,6 +9,17 @@ from django.views.generic import (
 )
 from .forms import PlaceFilterForm
 
+
+def place_list(request):
+    if request.method == 'POST':
+        form = FilterForm(request.POST)
+        if form.is_valid():
+            type_kitchens = form.cleaned_data['type_kitchens']
+            places = Place.objects.filter(place_typekitchen__id_type__in=type_kitchens).distinct()
+    else:
+        form = FilterForm()
+        places = Place.objects.all()
+    return render(request, 'place_list.html', {'places': places, 'form': form})
 
 class SearchResultsView(ListView):
     model = Place
@@ -67,4 +79,24 @@ class CreateViews(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         return super().form_valid(form)
+
+def places_list(request):
+    places = Place.objects.all()
+    if request.GET.get('live_music'):
+        places = places.filter(live_music=True)
+    if request.GET.get('takeaway_food'):
+        places = places.filter(takeaway_food=True)
+    if request.GET.get('delivery'):
+        places = places.filter(delivery=True)
+    if request.GET.get('summer_veranda'):
+        places = places.filter(summer_veranda=True)
+    if request.GET.get('menu_vegan'):
+        places = places.filter(menu_vegan=True)
+    if request.GET.get('visit_pet'):
+        places = places.filter(visit_pet=True)
+    if request.GET.get('bus_lunch'):
+        places = places.filter(bus_lunch=True)
+    if request.GET.get('child_room'):
+        places = places.filter(child_room=True)
+    return render(request, 'places_list.html', {'places': places})
 
