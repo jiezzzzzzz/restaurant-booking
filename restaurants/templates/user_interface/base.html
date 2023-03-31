@@ -36,6 +36,7 @@
                 {% if user.is_authenticated %}
             	<a class="nav-item nav-link" href="{% url 'profile' %}">Профиль</a>
                 <a class="nav-item nav-link" href="{% url 'logout' %}">Выход</a>
+                <a class="nav-item nav-link" href="{% url 'booking_list' %}">Заявки</a>
                 <a class="nav-item nav-link" href="{% url 'favorites:favorites' %}">Избранное</a>
                 {% else %}
                 <a class="nav-item nav-link" href="{% url 'register_manager' %}">Вход для менеджеров</a>
