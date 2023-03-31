@@ -1,3 +1,7 @@
+{% extends 'user_interface/base.html' %}
+
+{% block content %}
+
 <form method="POST">
   {% csrf_token %}
   <label for="name">Имя:</label>
@@ -23,3 +27,5 @@
 
   <button type="submit">Отправить заявку</button>
 </form>
+
+{% endblock %}

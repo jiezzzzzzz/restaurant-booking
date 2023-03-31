@@ -9,7 +9,7 @@ class Favorites(models.Model):
     id_user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.page_url
+        return self.id_favorites
 
     class Meta:
         verbose_name = "Избранное"
