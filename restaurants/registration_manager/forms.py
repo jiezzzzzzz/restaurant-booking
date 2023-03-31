@@ -1,5 +1,12 @@
 from django import forms
 from .models import Manager
+from booking_request.models import BookingRequest
+
+
+class BookingRequestForm(forms.ModelForm):
+    class Meta:
+        model = BookingRequest
+        fields = ['id_request', 'status']
 
 
 class ManagerRegistrationForm(forms.ModelForm):
@@ -7,7 +14,7 @@ class ManagerRegistrationForm(forms.ModelForm):
 
     class Meta:
         model = Manager
-        fields = ['id_manager', 'login', 'password', 'email', 'surname', 'name', 'patronymic']
+        fields = ['id_manager', 'login', 'password', 'email', 'surname', 'name', 'patronymic', 'place_id']
         labels = {
             'id_manager': 'Код менеджера',
             'login': 'Логин',
@@ -15,7 +22,8 @@ class ManagerRegistrationForm(forms.ModelForm):
             'email': 'Email',
             'surname': 'Фамилия',
             'name': 'Имя',
-            'patronymic': 'Отчество'
+            'patronymic': 'Отчество',
+            'place_id': "Код ресторана"
         }
 
     def clean_email(self):

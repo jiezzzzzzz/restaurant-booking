@@ -32,6 +32,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTHENTICATION_BACKENDS = (
+    ('django.contrib.auth.backends.ModelBackend'),
+)
+
 
 # Application definition
 
@@ -145,3 +149,4 @@ LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'user_interface/home'
 
 AUTH_USER_MODEL = 'registration.CustomUser'
+AUTH_MANAGER_MODEL = 'registration.Manager'

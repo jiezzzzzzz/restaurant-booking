@@ -1,10 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.models import Permission, Group
+from user_interface.models import Place
 
 
 class Manager(AbstractUser):
     id_manager = models.IntegerField("Код менеджера", primary_key=True)
+    place_id = models.ForeignKey(Place, on_delete=models.CASCADE)
     login = models.CharField("Логин", max_length=32, unique=True)
     password = models.CharField("Пароль", max_length=64)
     email = models.EmailField(max_length=320)

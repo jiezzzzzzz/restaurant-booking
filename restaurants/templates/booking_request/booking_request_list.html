@@ -1,0 +1,39 @@
+{% extends 'user_interface/base.html' %}
+
+{% block content %}
+  <h1>Список заявок</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Код</th>
+        <th>Место</th>
+        <th>Пользователь</th>
+        <th>Дата и время</th>
+        <th>Количество человек</th>
+        <th>Примечание пользователя</th>
+        <th>Статус</th>
+        <th>Изменить статус</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for booking_request in booking_requests %}
+        <tr>
+          <td>{{ booking_request.id_request }}</td>
+          <td>{{ booking_request.id_place }}</td>
+          <td>{{ booking_request.id_user }}</td>
+          <td>{{ booking_request.time_visit }}</td>
+          <td>{{ booking_request.number_persons }}</td>
+          <td>{{ booking_request.note_user }}</td>
+          <td>{{ booking_request.status }}</td>
+          <td>
+            <form method="post">
+              {% csrf_token %}
+              {{ form.as_p }}
+              <button type="submit">Сохранить</button>
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
