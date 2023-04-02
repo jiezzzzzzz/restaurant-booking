@@ -61,6 +61,7 @@ def home(request):
         'form': form,
         'places': places,
         'objects': object,
+
     }
 
     return render(request, 'user_interface/home.html', context)

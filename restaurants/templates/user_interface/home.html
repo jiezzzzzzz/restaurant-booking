@@ -8,13 +8,16 @@
             </div>
               {% for object in objects %}
             <h2><a class="article-title" href="{% url 'restaurant_page' object.id_place %}">{{ object.name_place }}</a></h2>
+              {% endfor %}
+
               {% if user.is_authenticated %}
               <form action = "{% url 'favorites:favorites' %}" method = "post">
                   {% csrf_token %}
                   {{ form.as_p }}
              <button type="submit">добавить в избранное</button>
-
+                {% for object in objects %}
                    <form action = "{% url 'booking_request:booking_id' object.id_place %}" method="post">
+                       {% endfor %}
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Забронировать</button>
@@ -23,7 +26,7 @@
               {% endif %}
              </div>
             </article>
-              {% endfor %}
+
 
 
 {% endblock content %}
