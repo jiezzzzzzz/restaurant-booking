@@ -60,7 +60,7 @@ def home(request):
     context = {
         'form': form,
         'places': places,
-         'objects': [{'id': obj.id_place} for obj in object],
+        'objects': object,
     }
 
     return render(request, 'user_interface/home.html', context)

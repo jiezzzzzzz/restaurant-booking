@@ -14,7 +14,7 @@
                   {{ form.as_p }}
              <button type="submit">добавить в избранное</button>
 
-                   <form action = "{% url 'booking_request:booking_id' id %}" method="post">
+                   <form action = "{% url 'booking_request:booking_id' object.id_place %}" method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Забронировать</button>
