@@ -60,7 +60,7 @@ def home(request):
     context = {
         'form': form,
         'places': places,
-        'objects': [{'id': obj.id} for obj in object],
+        'objects': [{'id': obj.id_place} for obj in object],
 
     }
 
