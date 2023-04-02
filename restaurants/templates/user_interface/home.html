@@ -15,14 +15,15 @@
                   {% csrf_token %}
                   {{ form.as_p }}
              <button type="submit">добавить в избранное</button>
+                  </form>
                   {% for object in objects %}
-                   <form action = "{% url 'booking_id' object.id %}" method="post">
+                   <form action = "{% url 'booking_request:booking_id' id_place=object.id %}" method="post">
                        {% endfor %}
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Забронировать</button>
     </form>
-                </form>
+
               {% endif %}
              </div>
             </article>
