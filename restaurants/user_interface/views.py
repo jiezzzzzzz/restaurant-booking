@@ -60,11 +60,10 @@ def home(request):
     context = {
         'form': form,
         'places': places,
-        'objects': object,
+         'objects': [{'id': obj.id} for obj in object],
     }
 
     return render(request, 'user_interface/home.html', context)
-
 
 
 def restaurant_page(request, id_place):
